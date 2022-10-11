@@ -11,4 +11,10 @@ docker-build:
 	docker build -t gocomm-api .
 
 docker-run:
-	docker run --name gocomm-api -p 3000:3000 -h 0.0.0.0 gocomm-api
+	docker run -d -p 3000:3000 gocomm-api:latest
+
+docker-multistage-build:
+	docker build -t gocomm-api:multistage -f Dockerfile.multistage .
+
+docker-multistage-run:
+	docker run -d -p 3000:3000 gocomm-api:multistage
