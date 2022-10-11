@@ -18,8 +18,8 @@ func main() {
 	http.HandleFunc(prefix+"/ok", checkHandler.OK())
 	http.HandleFunc(prefix+"/err", checkHandler.Err())
 
-	fmt.Println("Starting server at port 3001")
-	if err := http.ListenAndServe(":3001", nil); err != nil {
+	fmt.Println("Starting server at port 3000")
+	if err := http.ListenAndServe(":3000", nil); err != nil {
 		log.Fatal(err)
 	}
 }
