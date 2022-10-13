@@ -7,10 +7,18 @@ import (
 
 	"github.com/kytruong0712/gocommerce/api/cmd/banner"
 	"github.com/kytruong0712/gocommerce/api/internal/handler/rest/check"
+	"github.com/kytruong0712/gocommerce/api/pkg/database/postgres"
 )
 
 func main() {
 	banner.Print()
+
+	db, err := postgres.New()
+	if err != nil {
+		panic(err)
+	}
+
+	defer db.Close()
 
 	checkHandler := check.NewHandler()
 	prefix := "/api/public"
